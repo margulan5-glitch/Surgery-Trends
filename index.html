@@ -9,7 +9,7 @@
 <body>
 <header class="site-header">
  <a class="brand" href="#top" aria-label="Surgery Trends — наверх"><img class="brand-logo" src="assets/surgery-trends-logo.svg" alt="Surgery Trends"></a>
- <nav aria-label="Основная навигация"><a href="#about">О нас</a><a href="#benefits">Возможности</a><a href="#brigades">Бригады</a><a href="#registration">Регистрация</a></nav>
+ <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Открыть меню"><span></span><span></span><span></span></button><nav id="primaryNav" aria-label="Основная навигация"><a href="#about">О нас</a><a href="#benefits">Возможности</a><a href="#brigades">Бригады</a><a href="#registration">Регистрация</a></nav>
  <a class="nav-cta" href="#registration">Подать заявку <span aria-hidden="true">→</span></a>
 </header>
 <main id="top">
@@ -76,5 +76,5 @@
 </main>
 <footer class="site-footer"><a class="brand" href="#top"><img class="brand-logo" src="assets/surgery-trends-logo.svg" alt="Surgery Trends"></a><span class="footer-slogan">Growing Up to Hills</span><a href="https://www.instagram.com/surgery_trends/" target="_blank" rel="noopener">@surgery_trends ↗</a><span class="footer-copy">Хирургия — это не профессия, это образ мышления.</span></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/registration.js"></script>
-<script>document.querySelectorAll('[data-brigade]').forEach(card=>card.addEventListener('click',()=>{const select=document.querySelector('[name="brigade"]');if(select)select.value=card.dataset.brigade;}));</script>
+<script>document.querySelectorAll("[data-brigade]").forEach(card=>card.addEventListener("click",()=>{const select=document.querySelector("[name=\"brigade\"]");if(select)select.value=card.dataset.brigade;}));const menuButton=document.querySelector(".mobile-menu-toggle"),nav=document.getElementById("primaryNav");menuButton?.addEventListener("click",()=>{const open=menuButton.getAttribute("aria-expanded")!=="true";menuButton.setAttribute("aria-expanded",String(open));menuButton.setAttribute("aria-label",open?"Закрыть меню":"Открыть меню");nav.classList.toggle("is-open",open);});nav?.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{nav.classList.remove("is-open");menuButton?.setAttribute("aria-expanded","false");menuButton?.setAttribute("aria-label","Открыть меню");}));</script>
 </body></html>
